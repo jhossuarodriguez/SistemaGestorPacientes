@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SistemaGestorPacientes.Core.Application\SistemaGestorPacientes.Core.Application.csproj" />
     <ProjectReference Include="..\SistemaGestorPacientes.Core.Domain\SistemaGestorPacientes.Core.Domain.csproj" />
   </ItemGroup>
 

@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SistemaGestorPacientes.Core.Domain\SistemaGestorPacientes.Core.Domain.csproj" />
-    <ProjectReference Include="..\SistemaGestorPacientes.Infrastructure.Persistence\SistemaGestorPacientes.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

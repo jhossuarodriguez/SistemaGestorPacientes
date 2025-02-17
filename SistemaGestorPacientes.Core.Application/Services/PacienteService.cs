@@ -1,6 +1,6 @@
 ﻿using SistemaGestorPacientes.Core.Application.Interfaces;
 using SistemaGestorPacientes.Core.Domain.Entities;
-using SistemaGestorPacientes.Infrastructure.Persistence.Repositories;
+using SistemaGestorPacientes.Core.Application.Interfaces.Repositories;
 
 
 namespace SistemaGestorPacientes.Core.Application.Services

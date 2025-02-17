@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaGestorPacientes.Core.Domain.Entities;
 using SistemaGestorPacientes.Infrastructure.Persistence.Context;
+using SistemaGestorPacientes.Core.Application.Interfaces.Repositories;
 
 namespace SistemaGestorPacientes.Infrastructure.Persistence.Repositories
 {
@@ -19,6 +20,22 @@ namespace SistemaGestorPacientes.Infrastructure.Persistence.Repositories
         {
             _context.Pacientes.Add(paciente);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task Actualizar(Paciente paciente)
+        {
+            _context.Pacientes.Update(paciente);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Eliminar(int id)
+        {
+            var paciente = await _context.Pacientes.FindAsync(id);
+            if (paciente != null)
+            {
+                _context.Pacientes.Remove(paciente);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
