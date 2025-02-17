@@ -1,0 +1,2 @@
+string adminEmail = "admin@sistema.com";
+string adminPassword = "Admin123!";
