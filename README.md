@@ -45,34 +45,19 @@ Facilitar la administración de hospitales y clínicas a través de un software 
 
 ---
 
-## ⚙️ **Instalación y Configuración**
-### 1️⃣ Clonar el repositorio:
-```sh
-   git clone https://github.com/tuusuario/SistemaGestorPacientes.git
-   cd SistemaGestorPacientes
-```
+## ⚙️ **Configuración**
+
 ### 2️⃣ Configurar la base de datos en **appsettings.json**:
 ```json
 "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=SistemaGestorPacientes;User Id=tuusuario;Password=tupassword;"
+    "DefaultConnection": "Server=localhost;Database=SistemaGestorPacientesDB;User Id=tuusuario;Password=tupassword;"
 }
 ```
-### 3️⃣ Aplicar las migraciones y actualizar la base de datos:
-```sh
-   dotnet ef database update
-```
-### 4️⃣ Ejecutar el proyecto:
-```sh
-   dotnet run
-```
-
 ---
 
 ## 🤝 **Contribución**
 Si deseas contribuir, sigue estos pasos:
 1️⃣ Realiza un fork del proyecto
-2️⃣ Crea una nueva rama (`git checkout -b feature-nueva-funcionalidad`)
-3️⃣ Realiza tus cambios y confirma (`git commit -m 'Añadir nueva funcionalidad'`)
-4️⃣ Sube los cambios (`git push origin feature-nueva-funcionalidad`)
+2️⃣ Realiza tus cambios y confirma (`git commit -m 'Añadir nueva funcionalidad'`)
 5️⃣ Abre un Pull Request
 
