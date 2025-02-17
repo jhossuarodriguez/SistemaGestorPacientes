@@ -11,4 +11,8 @@
     <ProjectReference Include="..\SistemaGestorPacientes.Infrastructure.Persistence\SistemaGestorPacientes.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Medico\" />
+  </ItemGroup>
+
 </Project>
