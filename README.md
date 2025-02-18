@@ -53,6 +53,12 @@ Facilitar la administración de hospitales y clínicas a través de un software 
     "DefaultConnection": "Server=localhost;Database=SistemaGestorPacientesDB;User Id=tuusuario;Password=tupassword;"
 }
 ```
+---/
+
+Admin Login
+ ### adminEmail = "admin@sistema.com";
+ ### adminPassword = "Admin123!";
+ 
 ---
 
 ## 🤝 **Contribución**
