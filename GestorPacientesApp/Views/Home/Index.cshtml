@@ -2,13 +2,19 @@
     ViewData["Title"] = "Inicio";
 }
 
-<h2>Bienvenido al Sistema Gestor de Pacientes</h2>
 
-@if (User.Identity.IsAuthenticated)
-{
-    <p>Hola, @User.Identity.Name</p>
-}
-else
-{
-    <p><a asp-controller="Account" asp-action="Login">Inicia sesión</a> para continuar.</p>
-}
+ <h2>Bienvenido al Sistema Gestor de Pacientes</h2>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Hola, @User.Identity.Name</p>
+        <p>Utiliza el menú superior para gestionar pacientes, médicos y citas.</p>
+    }
+    else
+    {
+        <div>
+             <p>Debes Iniciar Sesion para acceder al sistema.</p>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Iniciar Sesion</a>
+        </div>
+    }
+

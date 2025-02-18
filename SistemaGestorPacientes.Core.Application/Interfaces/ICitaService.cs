@@ -2,7 +2,7 @@
 
 namespace SistemaGestorPacientes.Core.Application.Interfaces
 {
-    interface ICitaService
+    public interface ICitaService
     {
         Task<IEnumerable<Cita>> ObtenerTodas();
         Task<Cita> ObtenerPorId(int id);
