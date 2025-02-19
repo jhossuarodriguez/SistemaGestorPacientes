@@ -13,7 +13,10 @@
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Teléfono</th>
             <th>Cédula</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Consultorio</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -23,7 +26,10 @@
             <tr>
                 <td>@paciente.Nombre</td>
                 <td>@paciente.Apellido</td>
+                <td>@paciente.Telefono</td>
                 <td>@paciente.Cedula</td>
+                <td>@paciente.FechaNacimiento.ToShortDateString()</td>
+                <td>@(paciente.Consultorio != null ? paciente.Consultorio.Nombre : "No asignado")</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@paciente.Id" class="btn btn-warning">Editar</a>
                     <a asp-action="Delete" asp-route-id="@paciente.Id" class="btn btn-danger">Eliminar</a>

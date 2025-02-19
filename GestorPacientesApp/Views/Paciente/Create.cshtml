@@ -6,22 +6,59 @@
 
 <h2>Nuevo Paciente</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label>Nombre</label>
-        <input asp-for="Nombre" class="form-control" />
+        <input asp-for="Nombre" class="form-control" required />
     </div>
 
     <div class="form-group">
         <label>Apellido</label>
-        <input asp-for="Apellido" class="form-control" />
+        <input asp-for="Apellido" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Teléfono</label>
+        <input asp-for="Telefono" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Dirección</label>
+        <input asp-for="Direccion" class="form-control" required />
     </div>
 
     <div class="form-group">
         <label>Cédula</label>
-        <input asp-for="Cedula" class="form-control" />
+        <input asp-for="Cedula" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Fecha de Nacimiento</label>
+        <input asp-for="FechaNacimiento" type="date" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Es Fumador</label>
+        <input asp-for="EsFumador" type="checkbox" />
+    </div>
+
+    <div class="form-group">
+        <label>Tiene Alergias</label>
+        <input asp-for="TieneAlergias" type="checkbox" />
+    </div>
+
+    <div class="form-group">
+        <label>Foto</label>
+        <input asp-for="Foto" type="file" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Consultorio</label>
+        <select asp-for="ConsultorioId" asp-items="ViewBag.Consultorios" class="form-control" required>
+            <option value="">Seleccione un consultorio</option>
+        </select>
     </div>
 
     <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>
-

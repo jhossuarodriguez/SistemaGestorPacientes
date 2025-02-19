@@ -7,9 +7,12 @@
 
     @if (User.Identity.IsAuthenticated)
     {
-        <p>Hola, @User.Identity.Name</p>
-        <p>Utiliza el menú superior para gestionar pacientes, médicos y citas.</p>
+        <div class="text-center">
+            <h2>Hola, <span class="text-success">@User.Identity.Name</span></h2>
+            <p class="mt-5 text-sm">Utiliza el menú superior para gestionar pacientes, médicos y citas.</p>
+        </div>
     }
+
     else
     {
         <div class="justify-content-center align-items-center mt-5 text-center gap-3">

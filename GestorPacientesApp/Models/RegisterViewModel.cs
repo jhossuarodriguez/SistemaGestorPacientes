@@ -1,20 +1,30 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemaGestorPacientes.WebApp.Models
 {
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+        public string? Nombre { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string? Apellido { get; set; }
+
+        [Required, EmailAddress]
+        public string? Email { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Las contraseñas no coinciden.")]
-        public string ConfirmPassword { get; set; }
+        public string? UserName { get; set; }
+
+        [Required]
+        public int ConsultorioId { get; set; }
+
+        [Required, DataType(DataType.Password)]
+        public string? Password { get; set; }
+
+        [Required, DataType(DataType.Password), Compare("Password", ErrorMessage = "Las contraseñas no coinciden.")]
+        public string? ConfirmPassword { get; set; }
     }
 }
+

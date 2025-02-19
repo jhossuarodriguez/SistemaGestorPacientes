@@ -1,0 +1,53 @@
+﻿@model SistemaGestorPacientes.Core.Domain.Entities.Cita
+
+@{
+    ViewData["Title"] = "Agregar Cita";
+}
+
+<h2>Nuevo Medico</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Nombre Paciente</label>
+        <input asp-for="Paciente" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Medico</label>
+        <input asp-for="Medico" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Cédula</label>
+        <input asp-for="MedicoId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Cédula</label>
+        <input asp-for="MedicoId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Fecha</label>
+        <input asp-for="Fecha" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Hora</label>
+        <input asp-for="Hora" class="form-control" />
+    </div>   
+    
+    <div class="form-group">
+        <label>Estado</label>
+        <input asp-for="Estado" class="form-control" />
+    </div>   
+    
+    <div class="form-group">
+        <label>Motivo</label>
+        <input asp-for="Motivo" class="form-control" />
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+

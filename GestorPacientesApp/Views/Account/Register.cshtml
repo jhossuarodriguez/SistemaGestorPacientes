@@ -8,18 +8,40 @@
 
 <form asp-controller="Account" asp-action="Register" method="post">
     <div class="form-group">
-        <label>Email</label>
-        <input asp-for="Email" class="form-control" />
+        <label>Nombre</label>
+        <input asp-for="Nombre" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Apellido</label>
+        <input asp-for="Apellido" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input asp-for="Email" type="email" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Nombre de Usuario</label>
+        <input asp-for="UserName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Consultorio</label>
+        <select asp-for="ConsultorioId" asp-items="ViewBag.Consultorios" class="form-control" required>
+            <option value="">Seleccione un consultorio</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Contraseña</label>
-        <input asp-for="Password" type="password" class="form-control" />
+        <input asp-for="Password" type="password" class="form-control" required />
     </div>
 
     <div class="form-group">
         <label>Confirmar Contraseña</label>
-        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+        <input asp-for="ConfirmPassword" type="password" class="form-control" required />
     </div>
 
     <button type="submit" class="btn btn-success">Registrarse</button>

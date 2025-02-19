@@ -21,10 +21,10 @@ namespace SistemaGestorPacientes.WebApp.Controllers
             return View(medicos);
         }
 
-        public IActionResult Crear() => View();
+        public IActionResult Create() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Crear(Medico medico)
+        public async Task<IActionResult> Create(Medico medico)
         {
             if (!ModelState.IsValid) return View(medico);
 

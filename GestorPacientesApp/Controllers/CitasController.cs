@@ -2,13 +2,14 @@
 using SistemaGestorPacientes.Core.Application.Interfaces;
 using SistemaGestorPacientes.Core.Domain.Entities;
 
-namespace GestorPacientesApp.Controllers
+
+namespace SistemaGestorPacientes.WebApp.Controllers
 {
-    public class CitasController : Controller
+    public class CitaController : Controller
     {
         private readonly ICitaService _citaService;
 
-        public CitasController(ICitaService citaService)
+        public CitaController(ICitaService citaService)
         {
             _citaService = citaService;
         }
