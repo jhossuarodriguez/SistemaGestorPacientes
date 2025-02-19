@@ -20,10 +20,7 @@ namespace SistemaGestorPacientes.WebApp.Controllers
             return View(pacientes);
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
         [HttpPost]
         public async Task<IActionResult> Create(Paciente paciente)

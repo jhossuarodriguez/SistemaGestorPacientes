@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SistemaGestorPacientes.Core.Domain.Entities.Medico>
+
+@{
+    ViewData["Title"] = "Lista de Médicos";
+}
+
+<h2>Médicos</h2>
+
+<a asp-action="Create" class="btn btn-success">Agregar Médico</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Especialidad</th>
+            <th>Teléfono</th>
+            <th>Cédula</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var medico in Model)
+        {
+            <tr>
+                <td>@medico.Nombre</td>
+                <td>@medico.Apellido</td>
+                <td>@medico.Especialidad</td>
+                <td>@medico.Telefono</td>
+                <td>@medico.Cedula</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@medico.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@medico.Id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
