@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SistemaGestorPacientes.Core.Application.Interfaces;
+using SistemaGestorPacientes.Core.Application.Interfaces.Repositories;
+using SistemaGestorPacientes.Core.Application.Services;
 using SistemaGestorPacientes.Infrastructure.Persistence.Context;
+using SistemaGestorPacientes.Infrastructure.Persistence.Repositories;
 using SistemaGestorPacientes.Infrastructure.Persistence.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +23,16 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 
 //MVC_Services
 builder.Services.AddControllersWithViews();
+
+// Application Services
+builder.Services.AddScoped<IPacienteService, PacienteService>();
+builder.Services.AddScoped<IMedicoService, MedicoService>();
+builder.Services.AddScoped<ICitaService, CitaService>();
+
+//  Register infraestructor repositories
+builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
+builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
+builder.Services.AddScoped<ICitaRepository, CitaRepository>();
 
 var app = builder.Build();
 

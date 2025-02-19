@@ -4,7 +4,7 @@ namespace SistemaGestorPacientes.Core.Application.Interfaces.Repositories
 {
     public interface ICitaRepository
     {
-        Task<IEnumerable<Cita>> ObtenerTodas();
+        Task<IEnumerable<Cita>> ObtenerTodos();
         Task<Cita> ObtenerPorId(int id);
         Task Agregar(Cita cita);
         Task Actualizar(Cita cita);

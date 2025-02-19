@@ -14,7 +14,7 @@ namespace GestorPacientesApp.Controllers
         }
         public async Task<IActionResult> Index()
         {
-           var citas = await _citaService.ObtenerTodas();
+           var citas = await _citaService.ObtenerTodos();
             return View(citas);
         }
         public IActionResult Create()

@@ -4,7 +4,7 @@ namespace SistemaGestorPacientes.Core.Application.Interfaces
 {
     public interface ICitaService
     {
-        Task<IEnumerable<Cita>> ObtenerTodas();
+        Task<IEnumerable<Cita>> ObtenerTodos();
         Task<Cita> ObtenerPorId(int id);
         Task Agregar(Cita cita);
         Task Actualizar(Cita cita);
