@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaGestorPacientes.Core.Application.Interfaces;
+using SistemaGestorPacientes.Core.Application.Services;
 using SistemaGestorPacientes.Core.Domain.Entities;
 
 
@@ -8,17 +10,26 @@ namespace SistemaGestorPacientes.WebApp.Controllers
     public class CitaController : Controller
     {
         private readonly ICitaService _citaService;
+        private readonly IMedicoService _medicoService;
+        private readonly IPacienteService _pacienteService;
 
-        public CitaController(ICitaService citaService)
+        public CitaController(ICitaService citaService, IMedicoService medicoService, IPacienteService pacienteService)
         {
             _citaService = citaService;
+            _medicoService = medicoService;
+            _pacienteService = pacienteService;
         }
         public async Task<IActionResult> Index()
         {
            var citas = await _citaService.ObtenerTodos();
             return View(citas);
         }
-        public IActionResult Create() => View();
+        public async Task<IActionResult> Create()
+        {
+            ViewBag.Medicos = new SelectList(await _medicoService.ObtenerTodos(), "Id", "Nombre");
+            ViewBag.Pacientes = new SelectList(await _pacienteService.ObtenerTodos(), "Id", "Nombre");
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(Cita cita)
@@ -28,6 +39,8 @@ namespace SistemaGestorPacientes.WebApp.Controllers
                 await _citaService.Agregar(cita);
                 return RedirectToAction("Index");
             }
+            ViewBag.Medicos = new SelectList(await _medicoService.ObtenerTodos(), "Id", "Nombre");
+            ViewBag.Pacientes = new SelectList(await _pacienteService.ObtenerTodos(), "Id", "Nombre");
             return View(cita);
         }
 

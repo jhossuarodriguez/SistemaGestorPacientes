@@ -10,6 +10,8 @@ namespace SistemaGestorPacientes.Core.Domain.Entities
 
         public string? Especialidad { get; set; }
         public string? Telefono { get; set; }
+        public int ConsultorioId { get; set; }
+        public Consultorio? Consultorio { get; set; }
         public ICollection<Cita> Citas { get; set; } = new List<Cita>();
     }
 }

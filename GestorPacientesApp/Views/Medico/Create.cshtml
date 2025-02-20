@@ -32,6 +32,12 @@
         <input asp-for="Telefono" class="form-control" />
     </div>
 
+    <div class="form-group">
+        <label>Consultorio</label>
+        <select asp-for="ConsultorioId" asp-items="ViewBag.Consultorios" class="form-control" required>
+            <option value="">Seleccione un consultorio</option>
+        </select>
+    </div>
 
     <button type="submit" class="btn btn-success">Guardar</button>
 </form>
