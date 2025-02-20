@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SistemaGestorPacientes.Core.Domain.Entities.Consultorio>
+
+@{
+    ViewData["Title"] = "Lista de Consultorios";
+}
+
+<h2>Consultorios</h2>
+
+<a asp-action="Create" class="btn btn-success">Agregar Consultorio</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var consultorio in Model)
+        {
+            <tr>
+                <td>@consultorio.Nombre</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@consultorio.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@consultorio.Id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

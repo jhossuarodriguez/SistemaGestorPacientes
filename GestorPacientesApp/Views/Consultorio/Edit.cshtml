@@ -1,0 +1,19 @@
+﻿@model SistemaGestorPacientes.Core.Domain.Entities.Consultorio
+
+@{
+    ViewData["Title"] = "Editar Consultorio";
+}
+
+<h2>Editar Consultorio</h2>
+
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+
+    <div class="form-group">
+        <label>Nombre</label>
+        <input asp-for="Nombre" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

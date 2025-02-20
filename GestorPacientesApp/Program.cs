@@ -28,11 +28,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<IMedicoService, MedicoService>();
 builder.Services.AddScoped<ICitaService, CitaService>();
+builder.Services.AddScoped<IConsultorioService, ConsultorioService>();
+
 
 //  Register infraestructor repositories
 builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
 builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
-builder.Services.AddScoped<ICitaRepository, CitaRepository>();
+builder.Services.AddScoped<IConsultorioRepository, ConsultorioRepository>();
 
 var app = builder.Build();
 
