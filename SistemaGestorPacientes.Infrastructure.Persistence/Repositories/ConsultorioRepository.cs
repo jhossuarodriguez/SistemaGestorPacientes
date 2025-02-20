@@ -5,7 +5,7 @@ using SistemaGestorPacientes.Core.Application.Interfaces.Repositories;
 
 namespace SistemaGestorPacientes.Infrastructure.Persistence.Repositories
 {
-    public class ConsultorioRepository
+    public class ConsultorioRepository : IConsultorioRepository
     {
         private readonly AppDbContext _context;
 
