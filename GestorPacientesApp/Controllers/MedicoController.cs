@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaGestorPacientes.Core.Application.Interfaces;
+using SistemaGestorPacientes.Core.Application.Services;
 using SistemaGestorPacientes.Core.Domain.Entities;
 
 namespace SistemaGestorPacientes.WebApp.Controllers
@@ -42,6 +43,38 @@ namespace SistemaGestorPacientes.WebApp.Controllers
 
             ViewBag.Consultorios = new SelectList(await _consultorioService.ObtenerTodos(), "Id", "Nombre");
             return View(medico);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var medico = await _medicoService.ObtenerPorId(id);
+            if (medico == null) return NotFound();
+            return View(medico);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Medico medico)
+        {
+            if (ModelState.IsValid)
+            {
+                await _medicoService.Actualizar(medico);
+                return RedirectToAction("Index");
+            }
+            return View(medico);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var medico = await _medicoService.ObtenerPorId(id);
+            if (medico == null) return NotFound();
+            return View(medico);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _medicoService.Eliminar(id);
+            return RedirectToAction("Index");
         }
 
     }

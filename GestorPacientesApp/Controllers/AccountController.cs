@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaGestorPacientes.WebApp.Models;
 
 namespace SistemaGestorPacientes.WebApp.Controllers
@@ -8,6 +9,7 @@ namespace SistemaGestorPacientes.WebApp.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+
 
         public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
@@ -47,10 +49,12 @@ namespace SistemaGestorPacientes.WebApp.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+
             foreach (var error in result.Errors)
                 ModelState.AddModelError("", error.Description);
 
             return View(model);
+
         }
 
         [HttpPost]
