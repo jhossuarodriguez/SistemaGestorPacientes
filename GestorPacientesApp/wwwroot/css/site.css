@@ -39,3 +39,7 @@ body {
 label{
     margin: 5px;
 }
+
+table{
+    text-align: center;
+}
