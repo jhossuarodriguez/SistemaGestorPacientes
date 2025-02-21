@@ -1,12 +1,14 @@
 ﻿@model SistemaGestorPacientes.Core.Domain.Entities.Paciente
 
 @{
-    ViewData["Title"] = "Agregar Paciente";
+    ViewData["Title"] = "Editar Paciente";
 }
 
-<h2>Nuevo Paciente</h2>
+<h2>Editar Paciente</h2>
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+
     <div class="form-group">
         <label>Nombre *</label>
         <input asp-for="Nombre" class="form-control" required />
@@ -59,6 +61,6 @@
         </select>
     </div>
 
-    <button type="submit" class="btn btn-success">Guardar</button>
+    <button type="submit" class="btn btn-warning">Actualizar</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>

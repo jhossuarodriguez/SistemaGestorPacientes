@@ -1,0 +1,14 @@
+﻿@model SistemaGestorPacientes.Core.Domain.Entities.Medico
+
+@{
+    ViewData["Title"] = "Eliminar Medico";
+}
+
+<h2>¿Está seguro de que desea eliminar este Medico?</h2>
+<p><strong>Nombre:</strong> @Model.Nombre</p>
+
+<form asp-action="Delete" method="post">
+    <input asp-for="Id" type="hidden" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

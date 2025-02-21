@@ -1,0 +1,46 @@
+﻿@model SistemaGestorPacientes.Core.Domain.Entities.Medico
+
+@{
+    ViewData["Title"] = "Editar Medico";
+}
+
+<h2>Editar Medico</h2>
+
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+
+    <div class="form-group">
+        <label>Nombre</label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Apellido</label>
+        <input asp-for="Apellido" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Cédula</label>
+        <input asp-for="Cedula" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Especialidad</label>
+        <input asp-for="Especialidad" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Telefono</label>
+        <input asp-for="Telefono" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Consultorio</label>
+        <select asp-for="ConsultorioId" asp-items="ViewBag.Consultorios" class="form-control" required>
+            <option value="">Seleccione un consultorio</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

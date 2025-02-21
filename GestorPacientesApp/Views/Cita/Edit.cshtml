@@ -1,0 +1,52 @@
+﻿@model SistemaGestorPacientes.Core.Domain.Entities.Cita;
+
+@{
+    ViewData["Title"] = "Editar Cita";
+}
+
+<h2>Editar Cita</h2>
+
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+
+    <div class="form-group">
+        <label>Médico</label>
+        <select asp-for="MedicoId" asp-items="ViewBag.Medicos" class="form-control" required>
+            <option value="">Seleccione un médico</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Paciente</label>
+        <select asp-for="PacienteId" asp-items="ViewBag.Pacientes" class="form-control" required>
+            <option value="">Seleccione un paciente</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha</label>
+        <input asp-for="Fecha" type="date" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Hora</label>
+        <input asp-for="Hora" type="time" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Estado</label>
+        <select asp-for="Estado" class="form-control" required>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Confirmada">Confirmada</option>
+            <option value="Cancelada">Cancelada</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Motivo</label>
+        <textarea asp-for="Motivo" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaGestorPacientes.Core.Application.Interfaces;
-using SistemaGestorPacientes.Core.Application.Services;
 using SistemaGestorPacientes.Core.Domain.Entities;
 
 

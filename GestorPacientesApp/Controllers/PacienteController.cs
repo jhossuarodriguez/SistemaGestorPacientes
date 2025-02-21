@@ -31,7 +31,7 @@ namespace SistemaGestorPacientes.WebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Paciente paciente, IFormFile imagen)
+        public async Task<IActionResult> Create(Paciente paciente, IFormFile? imagen)
         {
             if (imagen != null && imagen.Length > 0)
             {
