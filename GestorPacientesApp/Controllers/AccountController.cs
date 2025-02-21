@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaGestorPacientes.WebApp.Models;
+using SistemaGestorPacientes.Core.Application.Interfaces;
+
 
 namespace SistemaGestorPacientes.WebApp.Controllers
 {
@@ -9,12 +11,14 @@ namespace SistemaGestorPacientes.WebApp.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly IConsultorioService _consultorioService;
 
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IConsultorioService consultorioService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _consultorioService = consultorioService;
         }
 
         public IActionResult Login() => View();
@@ -33,7 +37,11 @@ namespace SistemaGestorPacientes.WebApp.Controllers
             return View(model);
         }
 
-        public IActionResult Register() => View();
+        public async Task<IActionResult> Register()
+        {
+            ViewBag.Consultorios = new SelectList(await _consultorioService.ObtenerTodos(), "Id", "Nombre");
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)

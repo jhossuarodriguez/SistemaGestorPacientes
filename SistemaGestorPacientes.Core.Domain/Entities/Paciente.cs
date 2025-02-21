@@ -12,7 +12,7 @@ namespace SistemaGestorPacientes.Core.Domain.Entities
         public DateTime FechaNacimiento { get; set; }
         public bool EsFumador { get; set; }
         public bool TieneAlergias { get; set; }
-        public string? Foto { get; set; }
+        public byte[]? Foto { get; set; }
 
         public int ConsultorioId { get; set; }
         public Consultorio? Consultorio { get; set; }

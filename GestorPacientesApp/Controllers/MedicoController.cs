@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaGestorPacientes.Core.Application.Interfaces;
-using SistemaGestorPacientes.Core.Application.Services;
 using SistemaGestorPacientes.Core.Domain.Entities;
 
 namespace SistemaGestorPacientes.WebApp.Controllers
@@ -49,6 +48,8 @@ namespace SistemaGestorPacientes.WebApp.Controllers
         {
             var medico = await _medicoService.ObtenerPorId(id);
             if (medico == null) return NotFound();
+
+            ViewBag.Consultorios = new SelectList(await _consultorioService.ObtenerTodos(), "Id", "Nombre");
             return View(medico);
         }
 

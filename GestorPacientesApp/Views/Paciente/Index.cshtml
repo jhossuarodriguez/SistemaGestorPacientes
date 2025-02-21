@@ -26,13 +26,13 @@
         {
             <tr>
                 <td>
-                    @if (!string.IsNullOrEmpty(paciente.Foto))
+                    @if (paciente.Foto != null)
                     {
-                        <img src="@Url.Content("~/uploads/" + paciente.Foto)" alt="Foto" width="50" height="50" />
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(paciente.Foto)" width="50" height="50" />
                     }
                     else
                     {
-                        <span>Sin foto</span>
+                        <span>Sin imagen</span>
                     }
                 </td>
                 <td>@paciente.Nombre</td>

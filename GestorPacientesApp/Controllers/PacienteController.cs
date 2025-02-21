@@ -35,21 +35,15 @@ namespace SistemaGestorPacientes.WebApp.Controllers
         {
             if (imagen != null && imagen.Length > 0)
             {
-                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-                if (!Directory.Exists(uploadsFolder))
+                using (var memoryStream = new MemoryStream())
                 {
-                    Directory.CreateDirectory(uploadsFolder);
+                    await imagen.CopyToAsync(memoryStream);
+                    paciente.Foto = memoryStream.ToArray();
                 }
-
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imagen.FileName);
-                var filePath = Path.Combine(uploadsFolder, fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await imagen.CopyToAsync(stream);
-                }
-
-                paciente.Foto = fileName;
+            }
+            else
+            {
+                paciente.Foto = null; 
             }
 
             if (ModelState.IsValid)
@@ -67,6 +61,8 @@ namespace SistemaGestorPacientes.WebApp.Controllers
         {
             var paciente = await _pacienteService.ObtenerPorId(id);
             if (paciente == null) return NotFound();
+
+            ViewBag.Consultorios = new SelectList(await _consultorioService.ObtenerTodos(), "Id", "Nombre");
             return View(paciente);
         }
 
