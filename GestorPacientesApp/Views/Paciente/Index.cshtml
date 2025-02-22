@@ -40,7 +40,7 @@
                 <td>@paciente.Telefono</td>
                 <td>@paciente.Cedula</td>
                 <td>@paciente.FechaNacimiento.ToShortDateString()</td>
-                <td>@(paciente.Consultorio != null ? paciente.Consultorio.Nombre : "No asignado")</td>
+                <td>@(paciente.ConsultorioId != null ? paciente.ConsultorioId : "No asignado")</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@paciente.Id" class="btn btn-warning">Editar</a>
                     <a asp-action="Delete" asp-route-id="@paciente.Id" class="btn btn-danger">Eliminar</a>

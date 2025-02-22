@@ -14,7 +14,7 @@ namespace SistemaGestorPacientes.Core.Domain.Entities
         public bool TieneAlergias { get; set; }
         public byte[]? Foto { get; set; }
 
-        public int ConsultorioId { get; set; }
+        public int? ConsultorioId { get; set; }
         public Consultorio? Consultorio { get; set; }
 
         public ICollection<Cita> Citas { get; set; } = new List<Cita>();
